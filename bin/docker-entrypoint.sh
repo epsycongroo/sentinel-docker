@@ -9,7 +9,7 @@ RUN_CMD="$RUN_CMD -Dproject.name=\"$PROJECT_NAME\""
 
 RUN_CMD="$RUN_CMD $JAVA_OPTS"
 RUN_CMD="$RUN_CMD -jar"
-RUN_CMD="$RUN_CMD sentinel-dashboard-1.8.0.jar"
+RUN_CMD="$RUN_CMD sentinel-dashboard.jar"
 
 echo $RUN_CMD
 eval $RUN_CMD
