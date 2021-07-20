@@ -8,14 +8,14 @@ ENV BASE_DIR="/home/sentinel" \
     JAVA_OPTS="" \
     TIME_ZONE="Asia/Shanghai"
 
-ARG SENTINEL_DASHBOARD_VERSION=1.8.0
+ARG SENTINEL_DASHBOARD_VERSION=1.8.1
 
 WORKDIR /$BASE_DIR
 
 RUN set -x \
     && apk --no-cache add ca-certificates wget \
     && update-ca-certificates \
-    && wget https://github.com/alibaba/Sentinel/releases/download/v${SENTINEL_DASHBOARD_VERSION}/sentinel-dashboard-${SENTINEL_DASHBOARD_VERSION}.jar -P $BASE_DIR \
+    && wget https://github.com/alibaba/Sentinel/releases/download/${SENTINEL_DASHBOARD_VERSION}/sentinel-dashboard-${SENTINEL_DASHBOARD_VERSION}.jar -P $BASE_DIR \
     && ln -snf /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && echo '$TIME_ZONE' > /etc/timezone
 
 ADD bin/docker-entrypoint.sh bin/docker-entrypoint.sh
